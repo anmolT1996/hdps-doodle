@@ -28,10 +28,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="{%url 'home'%}">Dashboard</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'hdps:profile_form'%}">Profile</a></li>
-            <li><a href="{% url 'hdps:logout'%}">Log Out</a></li>
+              <li><a href="{% url 'hdps:profile-detail' request.user.id %}">Profile</a></li>
+              <li><a href="{% url 'hdps:logout'%}">Log Out</a></li>
+            {%else%}
+              <li><a href="admin/">Admin</a></li>
             {% endif %}
             <li><a href="#">Help</a></li>
           </ul>
@@ -41,34 +43,34 @@
         </div>
       </div>
     </nav>
-    {% block body_block %}
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           {% if user.is_authenticated %}
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="#">REPORTS</a></li>
             <li><a href="#">ANALYTICS</a></li>
             <li><a href="#">EXPORT</a></li>
           </ul>
           {% else %}
           <ul class="nav nav-sidebar">
-            <li><a href="{% url 'hdps:user_signup'  %}">REGISTER</a></li>
-            <li><a href="{% url 'hdps:login' %}">LOGIN</a></li>
-            <li><a href="">One more nav</a></li>
+            <li class="{% block overview-link %}active{% endblock %}"><a href="{%url 'home'%}">Overview <span class="sr-only">(current)</span></a></li>
+            <li class="{% block register-link%}{%endblock%}"><a href="{% url 'hdps:user_signup'  %}">USER REGISTER</a></li>
+            <li class="{% block login-link%}{%endblock%}"><a href="{% url 'hdps:login' %}">USER LOGIN</a></li>
+            <!-- <li><a href="">One more nav</a></li>
             <li><a href="">Another nav item</a></li>
             <li><a href="">More navigation</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Nav item again</a></li>
             <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
+            <li><a href="">Another nav item</a></li> -->
           </ul>
           {% endif %}
         </div>
 
-
+        {% block body_block %}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
 

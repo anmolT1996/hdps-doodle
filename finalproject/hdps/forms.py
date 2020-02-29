@@ -21,6 +21,6 @@ class SignUpForm(UserCreationForm):
 
 class ProfileModelForm(forms.ModelForm):
     class Meta:
-        fields ='__all__'
         model = Profile
-    
+        # fields = '__all__
+        exclude = ['user']

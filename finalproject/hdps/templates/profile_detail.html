@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+{% block body_block %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  {% if object is not None%}
+  <h1 class="page-header">User Profile : {{object}}</h1>
+      <ul>
+
+          <li> {{object.user.first_name}}</li>
+          <li> {{object.user.last_name}}</li>
+          <li> {{object.user.email}}</li>
+          <li> {{object.birth_date}}</li>
+          <li> {{object.phone_no}}</li>
+            <li> {{object.address}}</li>
+
+      </ul>
+      <a href="update"  <button type="button" class="btn btn-primary">Update Profile</button>
+        {%else%}
+        <a href="profile/"  <button type="button" class="btn btn-primary">Create Profile</button>
+        {%endif%}
+  </div>
+{% endblock %}
