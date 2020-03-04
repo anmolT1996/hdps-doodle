@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR,'hdps/templates')
 MEDIA_DIR = os.path.join(BASE_DIR,'hdps/media')
 STATIC_DIR = os.path.join(BASE_DIR,'hdps/static')
-
+ML_MODEL_DIR = os.path.join(BASE_DIR,'hdps/ml_model')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 

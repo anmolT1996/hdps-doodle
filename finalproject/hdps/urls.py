@@ -11,5 +11,7 @@ path('logout/',auth_views.LogoutView.as_view(),name='logout'),
 path('profile/',views.ProfileForm.as_view(),name='profile_form'),
 path('<int:pk>/',views.ProfileDetailView.as_view(),name='profile-detail'),
 path('<int:pk>/update',views.ProfileUpdateView.as_view(),name='profile-update'),
-path('<int:pk>/profile/',views.ProfileForm.as_view(),name='profile_form')
+path('<int:pk>/profile/',views.ProfileForm.as_view(),name='profile_form'),
+path('user_report_form/',views.userReportView,name='user-report-form'),
+path('prediction/',views.predict,name='heart_prediction')
 ]

@@ -1,0 +1,93 @@
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<link rel='stylesheet' href=" {% static 'css/prediction_report.css' %}" />
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <!-- <div class="card pmd-card"> -->
+                                    <!-- <div class="card-body"> -->
+
+                                        <!-- Basic Information -->
+                                        <div class="details-tab">
+                                            <div class="d-flex flex-row align-items-center mb-2">
+                                                <h2 class="card-title media-body">Patient Information</h2>
+                                            </div>
+                                            <hr>
+                                            <div class="row view-basic-card">
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">First Name</label>
+                                                        <p class="pmd-list-title">{{user.first_name}}</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Last Name</label>
+                                                        <p class="pmd-list-title">{{user.last_name}}</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Middle Name</label>
+                                                        <p class="pmd-list-title"> </p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Phone</label>
+                                                        <p class="pmd-list-title"><a href="#" title="">{{profile.phone_no}}</a></p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Personal Email</label>
+                                                        <p class="pmd-list-title"><a href="#" title="">{{user.email}}</a></p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Date of Birt</label>
+                                                        <p class="pmd-list-title">{{profile.birth_date}} </p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Gender</label>
+                                                        <p class="pmd-list-title">{{sex}}</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Address</label>
+                                                        <p class="pmd-list-title">{{profile.address}}</p>
+                                                    </div>
+                                                </div>
+
+                                        </div><br><br>
+
+                                        <!-- Employee Information -->
+                                        <div class="details-tab">
+                                            <div class="d-flex flex-row align-items-center mb-2">
+                                                <h2 class="card-title media-body">Patient Health Detail</h2>
+
+                                            </div>
+                                            <hr>
+                                            <!-- View Card -->
+                                            <div class="row view-employee-card">
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Blood Pressure</label>
+                                                        <p class="pmd-list-title">{{report_data.restbps}} mmHg</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Cholestrol </label>
+                                                        <p class="pmd-list-title">{{report_data.chol}} mmol/L</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">ECG </label>
+                                                        <p class="pmd-list-title">{{ecg_val}}</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Heart Rate</label>
+                                                        <p class="pmd-list-title">{{report_data.heart_rate}} bpm</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-3">
+                                                        <label class="pmd-list-subtitle">Heart Status</label>
+                                                        {% if result == 0%}
+                                                          <p class="pmd-list-title" style='color:green'>NORMAL</p>
+                                                        {% else %}
+                                                        <p class="pmd-list-title" style='color:red'>ABNORMAL</p>
+                                                        {%endif%}                                                   </div>
+
+                                                </div>
+
+                                        <!-- </div> -->
+
+
+
+
+</div>
+{% endblock %}

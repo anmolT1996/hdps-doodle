@@ -49,6 +49,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           {% if user.is_authenticated %}
           <ul class="nav nav-sidebar">
+            <li><a href="{%url 'hdps:user-report-form' %}">CHECK HEART STATUS</a></li>
             <li><a href="#">REPORTS</a></li>
             <li><a href="#">ANALYTICS</a></li>
             <li><a href="#">EXPORT</a></li>
